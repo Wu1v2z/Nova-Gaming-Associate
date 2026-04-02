@@ -104,14 +104,16 @@ body {
 /* 3. НАВІГАЦІЯ */
 .navbar {
     background-color: var(--accent-light);
-    padding: 15px 50px;
+    width: 1440px; /* Тримаємо ширину як у банера */
+    margin: 0 auto;
+    height: 60px; /* Фіксована висота для акуратності */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center; /* Центруємо весь вміст по горизонталі */
+    align-items: center;     /* Центруємо вміст по вертикалі */
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav-logo-box {
@@ -124,7 +126,10 @@ body {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    /* ОДНАКОВА ВІДСТАНЬ МІЖ КНОПКАМИ */
+    gap: 60px; 
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
@@ -132,11 +137,38 @@ body {
     color: black;
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Щоб назви не переносилися */
 }
 
 .nav-links a:hover {
-    color: #2563eb;
+    color: #2563eb; /* Колір при наведенні */
+}
+
+.nav-logo-container {
+    position: absolute;
+    left: 20px; /* Відступ від лівого краю панелі */
+    display: flex;
+    align-items: center;
+    height: 100%; /* Щоб лого було центроване по висоті */
+}
+
+.nav-logo-img {
+    height: 60px;    /* Підбери висоту під свій макет (приблизно 60-70px) */
+    width: auto;     /* Ширина підлаштується автоматично */
+    display: block;
+    object-fit: contain;
+    
+    /* Якщо логотип виглядає розмитим, можна додати: */
+    image-rendering: -webkit-optimize-contrast; 
+}
+
+/* Додамо ефект при наведенні (опціонально) */
+.nav-logo-img:hover {
+    opacity: 0.9;
+    cursor: pointer;
 }
 
 /* 4. ОСНОВНА СІТКА */
