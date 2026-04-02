@@ -23,46 +23,68 @@ body {
 }
 
 /* 1. ВЕРХНІЙ БАНЕР (ЛОГО) */
+@font-face {
+    font-family: 'NgaCustomFont';
+    src: url('fonts/your-font-file.woff2') format('woff2'),
+         url('fonts/your-font-file.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
 .top-banner {
-    background-color: rgb(255, 255, 255)55, 255, 255);
-    /* Встановлюємо чіткі розміри секції */
-    width: 1440px; 
+    background-color: white; /* Фон у тебе на фото білий під літерами */
+    width: 1440px;
     height: 564px;
-    
-    /* Центруємо саму секцію по центру екрану, якщо монітор ширший за 1440px */
-    margin: 0 auto; 
-    
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Щоб текст не вилазив за межі */
+    overflow: hidden; /* КРИТИЧНО: обрізає краї літер, як на макеті */
+    position: relative;
 }
 
 .huge-logo {
-    color: rgb(0, 0, 0);
-    /* Підбираємо розмір шрифту, щоб він заповнив ширину. 
-       Для "NGA" на 1440px це приблизно 500-600px */
-    font-size: 550px; 
+    /* Використовуємо наш кастомний шрифт (або системний жирний як дефолт) */
+    font-family: 'NgaCustomFont', 'Arial Black', sans-serif;
+    color: black;
+    
+    /* Розмір робимо більшим за висоту контейнера (564px), 
+       щоб літери "обрізалися" зверху і знизу як на скріншоті */
+    font-size: 750px; 
     font-weight: 900;
-    line-height: 564px; /* Вирівнюємо по висоті блоку */
-    letter-spacing: -25px; /* Стискаємо літери, як у макеті */
-    margin: 0;
-    padding: 0;
+    
+    /* Стискаємо літери докупи */
+    letter-spacing: -45px; 
+    
+    /* Прибираємо стандартні міжрядкові інтервали */
+    line-height: 0.7;
+    
+    /* Точне позиціонування для ефекту "виходу за межі" */
+    margin-top: 50px; 
+    white-space: nowrap;
     text-transform: uppercase;
     
-    /* Забороняємо перенос тексту */
-    white-space: nowrap; 
+    /* Робимо текст неможливим для виділення, щоб він поводився як графічний елемент */
+    user-select: none;
 }
 
 /* 2. КАРУСЕЛЬ СПОНСОРІВ */
 .sponsors-bar {
-    background-color: var(--accent-light);
-    border-top: 1px solid #9ca3af;
-    border-bottom: 1px solid #9ca3af;
-    padding: 15px 0;
+    background-color: #c4c4c4;
+    width: 1440px;
+    margin: 0 auto;
+    padding: 20px 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
+    /* Створюємо похилу форму (трапецію) */
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+    
+    /* Щоб банер наїжджав на логотип або стикувався впритул */
+    position: relative;
+    z-index: 10;
+    margin-top: -5px; 
 }
 
 .sponsor-logo {
