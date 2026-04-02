@@ -15,23 +15,43 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     background-color: var(--bg-color);
     color: var(--text-main);
 }
 
 /* 1. ВЕРХНІЙ БАНЕР (ЛОГО) */
 .top-banner {
-    background-color: black;
-    padding: 40px 0;
-    text-align: center;
+    background-color: rgb(255, 255, 255)55, 255, 255);
+    /* Встановлюємо чіткі розміри секції */
+    width: 1440px; 
+    height: 564px;
+    
+    /* Центруємо саму секцію по центру екрану, якщо монітор ширший за 1440px */
+    margin: 0 auto; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Щоб текст не вилазив за межі */
 }
 
 .huge-logo {
-    color: white;
-    font-size: 150px;
+    color: rgb(0, 0, 0);
+    /* Підбираємо розмір шрифту, щоб він заповнив ширину. 
+       Для "NGA" на 1440px це приблизно 500-600px */
+    font-size: 550px; 
     font-weight: 900;
-    letter-spacing: -10px;
-    line-height: 1;
+    line-height: 564px; /* Вирівнюємо по висоті блоку */
+    letter-spacing: -25px; /* Стискаємо літери, як у макеті */
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    
+    /* Забороняємо перенос тексту */
+    white-space: nowrap; 
 }
 
 /* 2. КАРУСЕЛЬ СПОНСОРІВ */
